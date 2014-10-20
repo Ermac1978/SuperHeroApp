@@ -25,7 +25,6 @@ class SuperHerosController < ApplicationController
   # POST /super_heros.json
   def create
     @super_hero = SuperHero.new(super_hero_params)
-
     respond_to do |format|
       if @super_hero.save
         format.html { redirect_to @super_hero, notice: 'Super hero was successfully created.' }
