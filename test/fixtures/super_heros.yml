@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  hero_name: MyString
+  secret_identity: MyString
+  powers: MyString
+  team: MyString
+
+two:
+  hero_name: MyString
+  secret_identity: MyString
+  powers: MyString
+  team: MyString

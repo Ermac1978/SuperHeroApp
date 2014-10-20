@@ -1,0 +1,33 @@
+<%= form_for(@super_hero) do |f| %>
+  <% if @super_hero.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@super_hero.errors.count, "error") %> prohibited this super_hero from being saved:</h2>
+
+      <ul>
+      <% @super_hero.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :hero_name %><br>
+    <%= f.text_field :hero_name %>
+  </div>
+  <div class="field">
+    <%= f.label :secret_identity %><br>
+    <%= f.text_field :secret_identity %>
+  </div>
+  <div class="field">
+    <%= f.label :powers %><br>
+    <%= f.text_field :powers %>
+  </div>
+  <div class="field">
+    <%= f.label :team %><br>
+    <%= f.text_field :team %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
