@@ -20,5 +20,12 @@
   <%= @super_hero.team %>
 </p>
 
+<p>
+  <strong>Pic:</strong><br>
+  <%= image_tag @super_hero.pic_url %>
+  <%= debug @super_hero %>
+</p>
+
+
 <%= link_to 'Edit', edit_super_hero_path(@super_hero) %> |
-<%= link_to 'Back', super_heros_path %>
+<%= link_to 'Home', super_heros_path %>

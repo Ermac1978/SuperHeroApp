@@ -68,6 +68,6 @@ class SuperHerosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def super_hero_params
-      params.require(:super_hero).permit(:hero_name, :secret_identity, :powers, :team)
+      params.require(:super_hero).permit(:hero_name, :secret_identity, :powers, :team, :pic)
     end
 end

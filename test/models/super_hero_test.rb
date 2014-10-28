@@ -9,6 +9,7 @@
 #  team            :string(255)
 #  created_at      :datetime
 #  updated_at      :datetime
+#  pic             :string(255)
 #
 
 require 'test_helper'

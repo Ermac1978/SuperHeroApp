@@ -1,4 +1,4 @@
-<%= form_for(@super_hero) do |f| %>
+<%= form_for(@super_hero, :html => {:multipart => true}) do |f| %>
   <% if @super_hero.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@super_hero.errors.count, "error") %> prohibited this super_hero from being saved:</h2>
@@ -27,6 +27,22 @@
     <%= f.label :team %><br>
     <%= f.text_field :team %>
   </div>
+  <div class="field">
+    <%= f.label :pic %><br>
+    <%= f.text_field :pic %><br>
+    <%= image_tag(@super_hero.pic_url) if @super_hero.pic? %>
+    <%= f.file_field :pic %>
+  </div>
+
+  <p>
+    <label>
+      <%= f.check_box :remove_pic %>
+      Remove pic
+<%= debug f.check_box :remove_pic %>
+    </label>
+  </p>
+
+
   <div class="actions">
     <%= f.submit %>
   </div>
