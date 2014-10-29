@@ -49,6 +49,7 @@ end
 
 # For now, continue to use sqlite3 in development
 # Also use pry for the console
+gem 'dotenv-rails', :groups => [:development, :test]
 group :development do
   gem 'sqlite3'
   gem 'pry-rails'
@@ -64,3 +65,5 @@ gem 'faker', '~> 1.4.3'
 gem 'carrierwave'
 
 gem "mini_magick"
+
+gem "fog"
