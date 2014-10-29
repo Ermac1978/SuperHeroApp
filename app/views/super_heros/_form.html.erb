@@ -33,14 +33,12 @@
     <%= image_tag(@super_hero.pic_url) if @super_hero.pic? %>
     <%= f.file_field :pic %>
   </div>
-
-  <p>
+  <div
     <label>
-      <%= f.check_box :remove_pic %>
-      Remove pic
-<%= debug f.check_box :remove_pic %>
+      <%= f.check_box :remove_pic! %>
+      Click to remove pic
     </label>
-  </p>
+  </div>
 
 
   <div class="actions">
