@@ -18,7 +18,7 @@ class SuperHero < ActiveRecord::Base
   validates :powers, presence: true
   validates :team, presence: true
 
-  scope :entries_with_pics, -> { where(super_hero.pic_url(:thumb).present? == true) }
+  scope :entries_with_pics, -> { where.not(pic: nil) }
 
   mount_uploader :pic, PicUploader
 end
