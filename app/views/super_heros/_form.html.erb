@@ -2,46 +2,44 @@
   <% if @super_hero.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@super_hero.errors.count, "error") %> prohibited this super_hero from being saved:</h2>
-
       <ul>
       <% @super_hero.errors.full_messages.each do |message| %>
         <li><%= message %></li>
       <% end %>
       </ul>
     </div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :hero_name %><br>
-    <%= f.text_field :hero_name %>
-  </div>
-  <div class="field">
-    <%= f.label :secret_identity %><br>
-    <%= f.text_field :secret_identity %>
-  </div>
-  <div class="field">
-    <%= f.label :powers %><br>
-    <%= f.text_field :powers %>
-  </div>
-  <div class="field">
-    <%= f.label :team %><br>
-    <%= f.text_field :team %>
-  </div>
-  <div class="field">
-    <%= f.label :pic %><br>
-    <%= f.text_field :pic %><br>
-    <%= image_tag(@super_hero.pic_url) if @super_hero.pic? %>
-    <%= f.file_field :pic %>
-  </div>
-  <div
-    <label>
-      <%= f.check_box :remove_pic! %>
-      Click to remove pic
-    </label>
-  </div>
-
-
-  <div class="actions">
-    <%= f.submit %>
-  </div>
 <% end %>
+
+<div style="margin:10px 10px 10px 10px;">
+    <div class="field has-success">
+      <%= f.label :hero_name, class: 'control-label' %><br>
+      <%= f.text_field :hero_name, class: 'form-control', style: 'max-width:500px' %>
+    </div>
+    <div class="field has-success">
+      <%= f.label :secret_identity, class: 'control-label' %><br>
+      <%= f.text_field :secret_identity, class: 'form-control', style: 'max-width:500px' %>
+    </div>
+    <div class="field has-success">
+      <%= f.label :powers, class: 'control-label' %><br>
+      <%= f.text_field :powers, class: 'form-control', style: 'max-width:500px' %>
+    </div>
+    <div class="field has-success">
+      <%= f.label :team, class: 'control-label' %><br>
+      <%= f.text_field :team, class: 'form-control', style: 'max-width:500px' %>
+    </div>
+    <div class="field has-success">
+      <%= f.label :pic, class: 'control-label'%><br>
+      <%= f.text_field :pic, class: 'form-control', style: 'max-width:500px' %><br>
+      <%= f.file_field :pic %>
+      <%= image_tag(@super_hero.pic_url) if @super_hero.pic? %>
+    <div>
+      <label>
+        <%= f.check_box :remove_pic! %>
+        Click to remove pic
+      </label>
+    </div>
+    <div class="actions">
+      <%= f.submit %>
+    </div>
+  <% end %>
+</div>

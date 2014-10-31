@@ -15,13 +15,10 @@
 
 # Fill database with sample data
 
-10.times do |x|
-  hero_name = Faker::Name.name
-  secret_identity = Faker::Name.name
-  powers = Faker::Name.name
-  team = Faker::Name.name
-  SuperHero.create!(:hero_name => hero_name,
-                    :secret_identity => secret_identity,
-                    :powers => powers,
-                    :team => team)
+100.times do |x|
+  SuperHero.create!(hero_name: Faker::Name.name,
+                    secret_identity: Faker::Name.name,
+                    :powers => Faker::Name.name,
+                    :team => Faker::Name.name,
+                    remote_pic_url: 'http://lorempixel.com/800/600/')
 end

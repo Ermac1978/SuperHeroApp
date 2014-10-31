@@ -1,33 +1,57 @@
-<h1>Collect your Super Heroes/Heroines here!</h1>
+<center><h1>Collect your Super Heroes/Heroines here!</h1></center>
 
-<table class="table table-hover">
-  <thead>
-    <tr>
-      <th>Picture</th>
-      <th>Hero Name</th>
-      <th>Secret Identity</th>
-      <th>Powers</th>
-      <th>Team</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @super_heros.each do |super_hero| %>
+<div class="table-responsive">
+  <table class="table table-striped table-hover">
+    <thead>
       <tr>
-        <td><%= image_tag super_hero.pic_url(:thumb)%></td>
-        <td><%= super_hero.hero_name %></td>
-        <td><%= super_hero.secret_identity %></td>
-        <td><%= super_hero.powers %></td>
-        <td><%= super_hero.team %></td>
-        <td><%= link_to 'Show', super_hero %></td>
-        <td><%= link_to 'Edit', edit_super_hero_path(super_hero) %></td>
-        <td><%= link_to 'Delete', super_hero, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <th>Picture</th>
+        <th> Hero Name <%= link_to super_heros_path(order_by: 'hero_name ASC') do %>
+            <span class="glyphicon glyphicon-sort-by-alphabet"></span>
+            <% end %>
+        </th>
+        <th> Secret Identity <%= link_to super_heros_path(order_by: 'secret_identity DESC') do %>
+            <span class="glyphicon glyphicon-sort-by-alphabet-alt"></span>
+            <% end %>
+        </th>
+        <th> Powers <%= link_to super_heros_path(order_by: 'powers ASC') do %>
+            <span class="glyphicon glyphicon-sort-by-alphabet"></span>
+            <% end %>
+        </th>
+        <th> Team <%= link_to super_heros_path(order_by: 'team DESC') do %>
+            <span class="glyphicon glyphicon-sort-by-alphabet-alt"></span>
+            <% end %>
+        </th>
+        <th colspan="3"></th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
-
+    </thead>
+    <tbody>
+      <% @super_heros.each do |super_hero| %>
+        <tr>
+          <td><%= image_tag super_hero.pic_url(:thumb) %>
+          <td><%= super_hero.hero_name %></td>
+          <td><%= super_hero.secret_identity %></td>
+          <td><%= super_hero.powers %></td>
+          <td><%= super_hero.team %></td>
+          <td><%= link_to super_hero do %>
+                <span class="glyphicon glyphicon-eye-open"></span> Show
+              <% end %>
+          </td>
+          <td><%= link_to edit_super_hero_path(super_hero) do %>
+                <span class="glyphicon glyphicon-edit"></span> Edit
+              <% end %>
+          </td>
+          <td><%= link_to super_hero, method: :delete, data: { confirm: 'Are you sure?' } do %>
+                <span class="glyphicon glyphicon-trash"></span> Delete
+              <% end %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
 <br>
 
-<%= link_to 'New Super hero', new_super_hero_path, class: 'btn btn-primary' %>
+<center><%= paginate @super_heros %><br></center>
+
+
+<center><%= link_to 'New Super hero', new_super_hero_path, class: 'btn btn-primary' %></center>

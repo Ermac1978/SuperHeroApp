@@ -4,7 +4,9 @@ class SuperHerosController < ApplicationController
   # GET /super_heros
   # GET /super_heros.json
   def index
-    @super_heros = SuperHero.all
+    order_by = params[:order_by]  || "hero_name DESC, secret_identity ASC, powers DESC, team ASC"
+    @super_heros = SuperHero.order(order_by).page params[:page]
+    
   end
 
   # GET /super_heros/1

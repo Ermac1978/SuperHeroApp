@@ -13,5 +13,12 @@
 #
 
 class SuperHero < ActiveRecord::Base
+  validates :hero_name, presence: true
+  validates :secret_identity, presence: true
+  validates :powers, presence: true
+  validates :team, presence: true
+
+  scope :entries_with_pics, -> { where(super_hero.pic_url(:thumb).present? == true) }
+
   mount_uploader :pic, PicUploader
 end
