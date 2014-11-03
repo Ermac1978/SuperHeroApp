@@ -32,12 +32,18 @@
       <%= f.text_field :pic, class: 'form-control', style: 'max-width:500px' %><br>
       <%= f.file_field :pic %>
       <%= image_tag(@super_hero.pic_url) if @super_hero.pic? %>
-    <div>
+    </div>
       <label>
         <%= f.check_box :remove_pic! %>
         Click to remove pic
       </label>
     </div>
+
+    <div class="form-group">
+      <%= f.label :user_id %>
+      <%= f.select :user_id, User.all.collect {|user| [user.name, user.id]}, class: 'form-control', placeholder: 'Enter user id' %>
+    </div>
+
     <div class="actions">
       <%= f.submit %>
     </div>

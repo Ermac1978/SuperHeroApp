@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :users
+
   resources :super_heros
 
   #root 'super_heros#index'

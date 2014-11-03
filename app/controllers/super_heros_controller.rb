@@ -6,7 +6,7 @@ class SuperHerosController < ApplicationController
   def index
     order_by = params[:order_by]  || "hero_name DESC, secret_identity ASC, powers DESC, team ASC"
     @super_heros = SuperHero.order(order_by).page params[:page]
-    
+
   end
 
   # GET /super_heros/1
@@ -70,6 +70,6 @@ class SuperHerosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def super_hero_params
-      params.require(:super_hero).permit(:hero_name, :secret_identity, :powers, :team, :pic)
+      params.require(:super_hero).permit(:hero_name, :secret_identity, :powers, :team, :pic, :user_id)
     end
 end

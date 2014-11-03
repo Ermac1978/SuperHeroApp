@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141028175325) do
+ActiveRecord::Schema.define(version: 20141103165933) do
 
   create_table "super_heros", force: true do |t|
     t.string   "hero_name"
@@ -21,6 +21,15 @@ ActiveRecord::Schema.define(version: 20141028175325) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "pic"
+    t.integer  "user_id"
+  end
+
+  add_index "super_heros", ["user_id"], name: "index_super_heros_on_user_id"
+
+  create_table "users", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
 end

@@ -10,6 +10,7 @@
 #  created_at      :datetime
 #  updated_at      :datetime
 #  pic             :string(255)
+#  user_id         :integer
 #
 
 class SuperHero < ActiveRecord::Base
@@ -21,5 +22,7 @@ class SuperHero < ActiveRecord::Base
   scope :entries_with_pics, -> { where.not(pic: nil) }
 
   mount_uploader :pic, PicUploader
+
+  belongs_to :user
 
 end
