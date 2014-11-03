@@ -21,4 +21,5 @@ class SuperHero < ActiveRecord::Base
   scope :entries_with_pics, -> { where.not(pic: nil) }
 
   mount_uploader :pic, PicUploader
+
 end
