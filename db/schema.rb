@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141103202507) do
+ActiveRecord::Schema.define(version: 20141105165135) do
 
   create_table "super_heros", force: true do |t|
     t.string   "hero_name"
@@ -30,6 +30,7 @@ ActiveRecord::Schema.define(version: 20141103202507) do
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "role",       limit: 25, default: "user"
   end
 
 end

@@ -6,6 +6,9 @@ Rails.application.routes.draw do
   #root 'super_heros#index'
   root 'welcome#index'
 
+  post "signin", to: "welcome#signin"
+  delete "signout", to: "welcome#signout"
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

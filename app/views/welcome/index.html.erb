@@ -1,10 +1,13 @@
 <div class="jumbotron">
-
-<h1>Super Hero/Heroine Tracker<h1>
-  <p>This your app to track your favorite Super Heroes/Heroines! Fill in your favorite characters, identities, powers, and teams!</p>
-
-
-<%= link_to 'Users Page', users_path, class: 'btn btn-primary'%>
-
-<%= link_to 'Super Heroes List', super_heros_path, class: 'btn btn-success'%>
+  <h1 class="text-center">Super Hero/Heroine Tracker<h1>
+    <p class="text-center">This your app to track your favorite Super Heroes/Heroines! Fill in your favorite characters, identities, powers, and teams!</p>
 </div>
+
+<% if current_user %>
+  <%= link_to "Sign Out", signout_path, method: :delete, class: 'btn btn-danger' %>
+<% else %>
+  <%= form_tag signin_path do %>
+  <%= text_field_tag "name" %>
+  <%= submit_tag "Sign In" %>
+  <% end %>
+<% end %>

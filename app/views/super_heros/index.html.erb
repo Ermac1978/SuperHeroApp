@@ -56,4 +56,5 @@
 <center><%= paginate @super_heros %><br></center>
 
 
-<center><%= link_to 'New Super hero', new_super_hero_path, class: 'btn btn-success' %><%= link_to 'Users Page', users_path, class: 'btn btn-primary'%></center>
+<%# @current_user.name if current_user %>
+<center><%= link_to 'New Super hero', new_super_hero_path, class: 'btn btn-success' %><%= link_to "Sign Out", signout_path, method: :delete, class: 'btn btn-danger' %></center>

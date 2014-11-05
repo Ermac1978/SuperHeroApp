@@ -21,6 +21,9 @@ class SuperHero < ActiveRecord::Base
 
   scope :entries_with_pics, -> { where.not(pic: nil) }
 
+# scope :for_user, ->(user) { where("user_id = ?, user.id) }
+  scope :for_user, ->(user) { where(user: user) }
+
   mount_uploader :pic, PicUploader
 
   belongs_to :user

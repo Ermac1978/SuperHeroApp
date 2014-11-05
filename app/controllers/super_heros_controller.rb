@@ -5,8 +5,10 @@ class SuperHerosController < ApplicationController
   # GET /super_heros.json
   def index
     order_by = params[:order_by]  || "hero_name DESC, secret_identity ASC, powers DESC, team ASC"
-    @super_heros = SuperHero.order(order_by).page params[:page]
+    @super_heros = SuperHero.for_user(current_user).order(order_by).page params[:page]
 
+    #@super_heros = SuperHero.where(user: current_user).order(order_by).page params[:page]
+    #@super_heros = SuperHero.where(user: current_user)
   end
 
   # GET /super_heros/1
@@ -27,6 +29,7 @@ class SuperHerosController < ApplicationController
   # POST /super_heros.json
   def create
     @super_hero = SuperHero.new(super_hero_params)
+    @super_hero.user = current_user
     respond_to do |format|
       if @super_hero.save
         format.html { redirect_to @super_hero, notice: 'Super hero was successfully created.' }
@@ -65,7 +68,7 @@ class SuperHerosController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_super_hero
-      @super_hero = SuperHero.find(params[:id])
+      @super_hero = SuperHero.for_user(current_user).find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
