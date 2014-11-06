@@ -1,18 +1,18 @@
 class SuperHerosController < ApplicationController
   before_action :set_super_hero, only: [:show, :edit, :update, :destroy]
+  before_action :set_order_by, only: [:search, :index]
 
   def search
-    order_by = params[:order_by]  || "hero_name DESC, secret_identity ASC, powers DESC, team ASC"
-    @super_heros = SuperHero.for_user(current_user).where("hero_name like ?", "%#{params[:search_query]}%").order(order_by).page params[:page]
+    # order_by = params[:order_by]  || "hero_name DESC, secret_identity ASC, powers DESC, team ASC"
+    @super_heros = SuperHero.for_user(current_user).where("hero_name like ?", "%#{params[:search_query]}%").order(@order_by).page params[:page]
     render template: "super_heros/index"
   end
-
 
   # GET /super_heros
   # GET /super_heros.json
   def index
-    order_by = params[:order_by]  || "hero_name DESC, secret_identity ASC, powers DESC, team ASC"
-    @super_heros = SuperHero.for_user(current_user).order(order_by).page params[:page]
+    # order_by = params[:order_by]  || "hero_name DESC, secret_identity ASC, powers DESC, team ASC"
+    @super_heros = SuperHero.for_user(current_user).order(@order_by).page params[:page]
 
     #@super_heros = SuperHero.where(user: current_user).order(order_by).page params[:page]
     #@super_heros = SuperHero.where(user: current_user)
@@ -76,6 +76,10 @@ class SuperHerosController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_super_hero
       @super_hero = SuperHero.for_user(current_user).find(params[:id])
+    end
+
+    def set_order_by
+      @order_by = params[:order_by]  || "hero_name DESC, secret_identity ASC, powers DESC, team ASC"
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

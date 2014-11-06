@@ -13,12 +13,14 @@
 
 #SuperHero.create(hero_name: 'Superman', secret_identity: 'Clark Kent', powers: 'Flight', team: 'Justice League')
 
+#remote_pic_url: 'http://lorempixel.com/800/600/'
+
 # Fill database with sample data
 
-100.times do |x|
+50.times do |x|
   SuperHero.create!(hero_name: Faker::Name.name,
                     secret_identity: Faker::Name.name,
                     :powers => Faker::Name.name,
                     :team => Faker::Name.name,
-                    remote_pic_url: 'http://lorempixel.com/800/600/')
+                    )
 end

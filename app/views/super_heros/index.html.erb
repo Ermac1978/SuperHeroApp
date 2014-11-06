@@ -28,7 +28,6 @@
             <span class="glyphicon glyphicon-sort-by-alphabet-alt"></span>
             <% end %>
         </th>
-        <th> User </th>
         <th colspan="3"></th>
       </tr>
     </thead>
@@ -40,7 +39,6 @@
           <td><%= super_hero.secret_identity %></td>
           <td><%= super_hero.powers %></td>
           <td><%= super_hero.team %></td>
-          <td><%= super_hero.user.name if super_hero.user %><td>
           <td><%= link_to super_hero do %>
                 <span class="glyphicon glyphicon-eye-open"></span> Show
               <% end %>
@@ -60,9 +58,7 @@
 </div>
 <br>
 
-
-
-
+<center><%= paginate @super_heros %><br></center>
 
 <%# @current_user.name if current_user %>
 <center><%= link_to 'New Super hero', new_super_hero_path, class: 'btn btn-success' %><%= link_to "Sign Out", signout_path, method: :delete, class: 'btn btn-danger' %></center>

@@ -3,11 +3,9 @@ Rails.application.routes.draw do
 
   resources :super_heros do
     collection do
-      post "search", to: "super_heros#search"
+      post "search"
     end
   end
-
-
 
   #root 'super_heros#index'
   root 'welcome#index'
