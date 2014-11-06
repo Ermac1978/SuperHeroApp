@@ -1,5 +1,12 @@
 <center><h1>Collect your Super Heroes/Heroines here!</h1></center>
 
+<h3>Search Here!</h3>
+<%= form_tag search_super_heros_path %>
+<%= text_field_tag "search_query", nil, placeholder: "Search Text" %>
+<%= submit_tag "Search" %>
+
+<center><%= paginate @super_heros %><br></center>
+
 <div class="table-responsive">
   <table class="table table-striped table-hover">
     <thead>
@@ -53,7 +60,8 @@
 </div>
 <br>
 
-<center><%= paginate @super_heros %><br></center>
+
+
 
 
 <%# @current_user.name if current_user %>

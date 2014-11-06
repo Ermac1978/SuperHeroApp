@@ -1,6 +1,13 @@
 class SuperHerosController < ApplicationController
   before_action :set_super_hero, only: [:show, :edit, :update, :destroy]
 
+  def search
+    order_by = params[:order_by]  || "hero_name DESC, secret_identity ASC, powers DESC, team ASC"
+    @super_heros = SuperHero.for_user(current_user).where("hero_name like ?", "%#{params[:search_query]}%").order(order_by).page params[:page]
+    render template: "super_heros/index"
+  end
+
+
   # GET /super_heros
   # GET /super_heros.json
   def index

@@ -69,3 +69,5 @@ gem "mini_magick"
 gem "fog"
 
 gem 'kaminari'
+
+gem 'bcrypt', '~> 3.1.7'

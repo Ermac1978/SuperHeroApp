@@ -1,12 +1,19 @@
 Rails.application.routes.draw do
   resources :users
 
-  resources :super_heros
+  resources :super_heros do
+    collection do
+      post "search", to: "super_heros#search"
+    end
+  end
+
+
 
   #root 'super_heros#index'
   root 'welcome#index'
 
   post "signin", to: "welcome#signin"
+  post "signup", to: "welcome#signup"
   delete "signout", to: "welcome#signout"
 
   # The priority is based upon order of creation: first created -> highest priority.
