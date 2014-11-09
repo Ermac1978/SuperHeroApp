@@ -20,18 +20,15 @@ class WelcomeController < ApplicationController
   end
 
   def signin
-
     user = User.find_by(email: params[:email]).try(:authenticate, params[:password])
-
     if user
       session[:user_id] = user.id
       flash[:notice] = "Congrats, you signed in!"
     else
       session[:user_id] = nil
-      flash[:error] = "No credentials found"
+      flash[:error] = "ERROR!"
     end
     redirect_to super_heros_path
-
   end
 
   def signout
@@ -39,8 +36,5 @@ class WelcomeController < ApplicationController
     flash[:warning] = "YOU SIGNED OUT!"
     redirect_to root_path
   end
-
-
-
 
 end
