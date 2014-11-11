@@ -18,3 +18,4 @@
 .env
 .idea
 public/uploads
+.DS_Store
